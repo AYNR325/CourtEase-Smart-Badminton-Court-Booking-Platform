@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const EquipmentSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    type: { type: String, enum: ['Racket', 'Shoe'], required: true },
+    type: { type: String, required: true },
     pricePerUnit: { type: Number, required: true },
     totalStock: { type: Number, required: true },
 });
