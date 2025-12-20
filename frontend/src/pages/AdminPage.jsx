@@ -201,7 +201,7 @@ function AdminPage() {
                         )}
                         {data.map(item => (
                             <div key={item._id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-indigo-100 transition-all duration-300 relative group overflow-hidden">
-                                <div className="absolute top-0 right-0 p-4 transition-opacity opacity-0 group-hover:opacity-100 z-10">
+                                <div className="absolute top-0 right-0 p-4 transition-opacity opacity-100 lg:opacity-0 lg:group-hover:opacity-100 z-10">
                                     <button
                                         onClick={() => handleDelete(item._id)}
                                         className="bg-white/90 p-2 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 shadow-sm border border-gray-100 transition-colors backdrop-blur-sm"
