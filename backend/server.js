@@ -11,12 +11,7 @@ const pricingRouter = require('./routes/pricingRoutes');
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI).then(() => {
-  console.log("Connected to MongoDB")
-}).catch((err) => {
-  console.log(err)
-})
-
+// Routes
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
@@ -25,6 +20,14 @@ app.use('/api', resourceRouter);
 app.use('/api/bookings', bookingRouter);
 app.use('/api/pricing-rules', pricingRouter);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// Connect to MongoDB before starting the server
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("Connected to MongoDB")
+    app.listen(port, () => {
+      console.log(`Example app listening on port ${port}`)
+    })
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MongoDB:", err)
+  })
